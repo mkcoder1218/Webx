@@ -312,6 +312,60 @@ html.dark .hero-section {
   background: linear-gradient(135deg, #0c1323 0%, #162a60 100%);
 }
 
+/* Trusted by section styling */
+.trusted-by {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.trusted-by p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.client-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.client-logo {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.client-logo.insa-badge {
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+.badge-icon {
+  color: #fbbf24;
+}
+
+.client-logo:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.client-logo.insa-badge:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+/* Rest of hero section styles */
 .hero-title {
   font-size: 3.5rem;
   font-weight: 800;
@@ -801,4 +855,22 @@ html.dark .service-card {
 .benefit-desc {
   color: var(--text-light);
   line-height: 1.6;
+}
+
+/* Footer styling */
+.powered-by {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.powered-by a {
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.powered-by a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
 }

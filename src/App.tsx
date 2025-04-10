@@ -11,6 +11,7 @@ import {
   FaPaintBrush,
   FaRocket,
   FaCode,
+  FaShieldAlt,
 } from "react-icons/fa";
 
 // Define Translation interface
@@ -212,7 +213,7 @@ const translations: Translations = {
         "ድንቅ ድረ-ገጾችን እና የዲጂታል እይታ ጋር ንግድዎን አሳድጉ። ሀሳብዎን እንወስዳለን እና ጥራት ያለው፣ አስተማማኝ እና የተሟላ ምርቶችን እናመጣለን።",
       ctaButton: "እኛን ያነጋግሩ",
       portfolioButton: "ስራዎቻችን ይመልከቱ",
-      trustedBy: "ታማኝ በ፡",
+      trustedBy: "የሚያምኑን ድርጅቶች",
       imageAlt: "ድረ-ገጽ ዲዛይን ምሳሌ",
     },
 
@@ -996,14 +997,18 @@ ${formData.message}
                   {t.hero.portfolioButton}
                 </a>
               </div>
-              {/* <div className="trusted-by">
+              <div className="trusted-by">
                 <p>{t.hero.trustedBy}</p>
                 <div className="client-logos">
-                  <div className="client-logo">Addis Co</div>
-                  <div className="client-logo">Ethio Tech</div>
-                  <div className="client-logo">Habesha Ltd</div>
+                  <div className="client-logo insa-badge">
+                    <FaShieldAlt className="badge-icon" />{" "}
+                    <span>INSA Certified</span>
+                  </div>
+                  <div className="client-logo">Google</div>
+                  <div className="client-logo">Facebook</div>
+                  <div className="client-logo">Yegara Host</div>
                 </div>
-              </div> */}
+              </div>
             </div>
             <div className="hero-image-container">
               <div className="hero-image">
@@ -1575,6 +1580,16 @@ ${formData.message}
           <div className="footer-section">
             <h3>WebExpress</h3>
             <p>{t.professionalSolutions}</p>
+            <p className="powered-by">
+              Powered by{" "}
+              <a
+                href="https://startupagile.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                startupagile.ai
+              </a>
+            </p>
           </div>
           <div className="footer-section">
             <h3>{t.emailLabel}</h3>
