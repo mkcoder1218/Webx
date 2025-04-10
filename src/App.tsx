@@ -1578,8 +1578,9 @@ ${formData.message}
             <h3>{t.emailLabel}</h3>
             <p>
               <strong>{t.emailLabel}:</strong> Kayo@startupagile.app
+             Mimetechnology1218@gmail.com
             </p>
-            <p>{t.addressLabel}</p>
+
             <p>
               <strong>{t.phoneLabel}:</strong> +251933894492 +251961145152
             </p>

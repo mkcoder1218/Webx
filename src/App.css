@@ -1887,3 +1887,44 @@ button:disabled {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, #3563e9 0%, #6e8fff 100%);
 }
+
+/* CTA Button Styles */
+.cta-button {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button.primary {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.primary:active {
+  transform: translateY(-1px);
+}
+
+.cta-button.outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.cta-button.outline:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
