@@ -213,7 +213,7 @@ const translations: Translations = {
         "ድንቅ ድረ-ገጾችን እና የዲጂታል እይታ ጋር ንግድዎን አሳድጉ። ሀሳብዎን እንወስዳለን እና ጥራት ያለው፣ አስተማማኝ እና የተሟላ ምርቶችን እናመጣለን።",
       ctaButton: "እኛን ያነጋግሩ",
       portfolioButton: "ስራዎቻችን ይመልከቱ",
-      trustedBy: "የሚያምኑን ድርጅቶች",
+      trustedBy: "ከእነዚህ ጋር በትብብር",
       imageAlt: "ድረ-ገጽ ዲዛይን ምሳሌ",
     },
 
@@ -417,7 +417,7 @@ const translations: Translations = {
         "Grow your business with stunning websites and digital excellence. We take your ideas and deliver quality, reliable, and complete products.",
       ctaButton: "Talk to Us",
       portfolioButton: "View Our Work",
-      trustedBy: "Trusted by:",
+      trustedBy: "Partners with:",
       imageAlt: "Website design example",
     },
 
@@ -849,8 +849,13 @@ ${formData.message}
     <div className="app-container">
       <header className="site-header">
         <div className="container nav-container">
-          <div className="logo">
-            <h1>WebExpress</h1>
+          <div className="logo-container">
+            <div className="logo">
+              <h1>WebExpress</h1>
+            </div>
+            <div className="insa-certification">
+              <FaShieldAlt className="certification-icon" /> INSA Certified
+            </div>
           </div>
           <nav>
             <ul className="nav-menu">
@@ -1000,10 +1005,7 @@ ${formData.message}
               <div className="trusted-by">
                 <p>{t.hero.trustedBy}</p>
                 <div className="client-logos">
-                  <div className="client-logo insa-badge">
-                    <FaShieldAlt className="badge-icon" />{" "}
-                    <span>INSA Certified</span>
-                  </div>
+                
                   <div className="client-logo">Google</div>
                   <div className="client-logo">Facebook</div>
                   <div className="client-logo">Yegara Host</div>

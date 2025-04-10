@@ -258,10 +258,39 @@ html.dark .site-header {
   align-items: center;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color);
+}
+
+.insa-certification {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--text-dark);
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+html.dark .insa-certification {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #f3f4f6;
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.certification-icon {
+  color: #fbbf24;
 }
 
 .nav-menu {
@@ -873,4 +902,28 @@ html.dark .service-card {
 .powered-by a:hover {
   color: var(--primary-hover);
   text-decoration: underline;
+}
+
+/* Mobile responsiveness for header */
+@media (max-width: 768px) {
+  .logo-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .insa-certification {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .insa-certification {
+    font-size: 0.7rem;
+  }
 }
