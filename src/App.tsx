@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, FormEvent } from "react";
+import React, { useState, useEffect } from "react";
+import { FormEvent } from "react";
 import "./App.css";
 import {
   FaChartLine,
@@ -11,11 +10,6 @@ import {
   FaMobileAlt,
   FaPaintBrush,
   FaRocket,
-  FaBars,
-  FaCheckCircle,
-  FaMoon,
-  FaSun,
-  FaLaptop,
   FaCode,
 } from "react-icons/fa";
 
@@ -109,7 +103,7 @@ interface Translation {
   websiteBenefits: string;
   benefitsDescription: string;
   increasesSales: string;
-  salesDesc: string;
+  salesDescText: string;
   salesQuote: string;
   betterAccessibility: string;
   accessDesc: string;
@@ -130,14 +124,14 @@ interface Translation {
   preparedForSearchEngines: string;
   saveTime: string;
   timeSaves: string;
-  timeDesc: string;
+  timeDescText: string;
   timeQuote: string;
   professionalAppearance: string;
   credibility: string;
-  appearanceDesc: string;
+  appearanceDescText: string;
   appearanceQuote: string;
   businessGrowth: string;
-  growthDesc: string;
+  growthDescText: string;
   growthQuote: string;
   ourWork: string;
   recentWebsites: string;
@@ -183,15 +177,15 @@ interface Translation {
   quickLinks: string;
   followUs: string;
   rightsReserved: string;
-  increasedSales: string;
+  salesIncreaseText: string;
   salesIncrease: string;
   moreAccess: string;
   visibilityIncrease: string;
   betterInsights: string;
   mobileTraffic: string;
-  mobileFriendly: string;
-  professionalLook: string;
-  growthRate: string;
+  mobileFriendlyText: string;
+  professionalLookText: string;
+  growthRateText: string;
 }
 
 interface Translations {
@@ -319,7 +313,7 @@ const translations: Translations = {
     websiteBenefits: "የድረ-ገጽ ጥቅሞች",
     benefitsDescription: "ድረ-ገጽዎ ንግድዎን እንዴት እንደሚያሳድግ",
     increasesSales: "የሽያጭ ጭማሪ",
-    salesDesc: "ንግድዎን ያሳድጋል እና ሽያጭዎን ያስፋፋል",
+    salesDescText: "ንግድዎን ያሳድጋል እና ሽያጭዎን ያስፋፋል",
     salesQuote: "ሽያጭ በ12 ወራት ውስጥ በድረ-ገጽ በኩል በ40% ጨምሯል",
     betterAccessibility: "የተሻለ ተደራሽነት",
     accessDesc: "ድረ-ገጽ ያለ የንግድ ሰዓት ገደቦች ነጻነት ይሰጥዎታል",
@@ -340,15 +334,15 @@ const translations: Translations = {
     preparedForSearchEngines: "ለፍለጋ ማሽኖች ዝግጁ ነው",
     saveTime: "ጊዜ እና ወጪ ቁጠባ",
     timeSaves: "ብዙ ጥያቄዎችን የሚመልስ ድረ-ገጽ የደንበኛ አገልግሎት ጊዜ እና ወጪን ይቆጥባል",
-    timeDesc: "ብዙ ጥያቄዎችን የሚመልስ ድረ-ገጽ የደንበኛ አገልግሎት ጊዜ እና ወጪን ይቆጥባል",
+    timeDescText: "ብዙ ጥያቄዎችን የሚመልስ ድረ-ገጽ የደንበኛ አገልግሎት ጊዜ እና ወጪን ይቆጥባል",
     timeQuote: "በድረ-ገጻችን የጥያቄ እና መልስ ክፍል በ45% የደንበኛ አገልግሎት ጥሪዎችን ቀንሰናል",
     professionalAppearance: "ፕሮፌሽናል መልክ",
     credibility: "ተዓማኒነት",
-    appearanceDesc:
+    appearanceDescText:
       "ጥራት ያለው ድረ-ገጽ ለንግድዎ ተዓማኒነትን ይፈጥራል እና ይበልጥ ዋጋ ያለው እንዲመስል ያደርጋል",
     appearanceQuote: "ደንበኞች ድረ-ገጻችን ምክንያት ኩባንያችን ምን ያህል ፕሮፌሽናል እንደሚመስል ጠቅሰዋል",
     businessGrowth: "የንግድ እድገት መሰረት",
-    growthDesc: "ጠንካራ የመስመር ላይ መገኘት ለወደፊት እድገት እና ማስፋት መሰረት ይፈጥራል",
+    growthDescText: "ጠንካራ የመስመር ላይ መገኘት ለወደፊት እድገት እና ማስፋት መሰረት ይፈጥራል",
     growthQuote: "የመስመር ላይ መገኘታችን ወደ አዳዲስ ገበያዎች እንድናስፋፋ አስችሎናል",
     ourWork: "ስራዎቻችን",
     recentWebsites: "በቅርቡ የተሰሩ ድረ-ገጾች",
@@ -394,15 +388,15 @@ const translations: Translations = {
     quickLinks: "ፈጣን ማገናኛዎች",
     followUs: "ተከተሉን",
     rightsReserved: "መብቱ በህግ የተጠበቀ ነው",
-    increasedSales: "የሽያጭ ጭማሪ",
+    salesIncreaseText: "የሽያጭ ጭማሪ",
     salesIncrease: "የሽያጭ ጭማሪ",
     moreAccess: "የተሻለ ተደራሽነት",
     visibilityIncrease: "የሚጨምር ታይነት",
     betterInsights: "የተሻለ ግንዛቤ",
     mobileTraffic: "የሞባይል ትራፊክ",
-    mobileFriendly: "ሞባይል ተኮር",
-    professionalLook: "ፕሮፌሽናል መልክ",
-    growthRate: "የእድገት መጠን",
+    mobileFriendlyText: "ሞባይል ተኮር",
+    professionalLookText: "ፕሮፌሽናል መልክ",
+    growthRateText: "የእድገት መጠን",
   },
 
   english: {
@@ -527,7 +521,7 @@ const translations: Translations = {
     websiteBenefits: "Website Benefits",
     benefitsDescription: "How your website can grow your business",
     increasesSales: "Increased Sales",
-    salesDesc: "Grows your business and expands your sales",
+    salesDescText: "Grows your business and expands your sales",
     salesQuote: "Sales increased by 40% within 12 months through the website",
     betterAccessibility: "Better Accessibility",
     accessDesc:
@@ -550,18 +544,18 @@ const translations: Translations = {
     saveTime: "Time & Cost Savings",
     timeSaves:
       "A website that answers many questions saves customer service time and costs",
-    timeDesc:
+    timeDescText:
       "A website that answers many questions saves customer service time and costs",
     timeQuote:
       "We've reduced customer service calls by 45% thanks to our website FAQ section",
     professionalAppearance: "Professional Appearance",
     credibility: "Credibility",
-    appearanceDesc:
+    appearanceDescText:
       "A quality website creates credibility for your business and makes it appear more valuable",
     appearanceQuote:
       "Clients have mentioned how professional our company looks because of our website",
     businessGrowth: "Business Growth Foundation",
-    growthDesc:
+    growthDescText:
       "A strong online presence creates a foundation for future growth and expansion",
     growthQuote: "Our online presence has enabled us to expand to new markets",
     ourWork: "Our Work",
@@ -610,20 +604,19 @@ const translations: Translations = {
     quickLinks: "Quick Links",
     followUs: "Follow Us",
     rightsReserved: "All rights reserved",
-    increasedSales: "Increased Sales",
+    salesIncreaseText: "Increased Sales",
     salesIncrease: "Sales Increase",
     moreAccess: "Better Accessibility",
     visibilityIncrease: "Visibility Increase",
     betterInsights: "Better Insights",
     mobileTraffic: "Mobile Traffic",
-    mobileFriendly: "Mobile Friendly",
-    professionalLook: "Professional Look",
-    growthRate: "Growth Rate",
+    mobileFriendlyText: "Mobile Friendly",
+    professionalLookText: "Professional Look",
+    growthRateText: "Growth Rate",
   },
 };
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState<"amharic" | "english">("amharic"); // Default language is Amharic
@@ -1329,7 +1322,7 @@ ${formData.message}
             <div className="benefit-icon">
               <FaMobileAlt />
             </div>
-            <h3>{t.mobileFriendly}</h3>
+            <h3>{t.mobileFriendlyText}</h3>
             <p>
               Our responsive websites automatically adapt to any device size,
               providing an optimal viewing experience on smartphones, tablets,
@@ -1351,7 +1344,7 @@ ${formData.message}
             <div className="benefit-icon">
               <FaPaintBrush />
             </div>
-            <h3>{t.professionalLook}</h3>
+            <h3>{t.professionalLookText}</h3>
             <p>
               A professionally designed website builds trust with your visitors
               and reflects your brand's values and identity through thoughtful
@@ -1383,7 +1376,7 @@ ${formData.message}
                   style={{ width: "0%" }}
                 ></div>
               </div>
-              <div className="metric-value">92% {t.growthRate}</div>
+              <div className="metric-value">92% {t.growthRateText}</div>
             </div>
           </div>
         </div>
@@ -1578,7 +1571,7 @@ ${formData.message}
             <h3>{t.emailLabel}</h3>
             <p>
               <strong>{t.emailLabel}:</strong> Kayo@startupagile.app
-             Mimetechnology1218@gmail.com
+              Mimetechnology1218@gmail.com
             </p>
 
             <p>
