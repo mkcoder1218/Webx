@@ -680,17 +680,26 @@ function App() {
       "data-theme",
       darkMode ? "dark" : "light"
     );
+    // Add or remove dark class
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     // Save theme preference
     localStorage.setItem("theme", darkMode ? "dark" : "light");
+
+    console.log("Theme changed:", darkMode ? "dark" : "light"); // Debug logging
   }, [darkMode]);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
     document.documentElement.lang = language === "amharic" ? "am" : "en";
   }, [darkMode, language]);
 
   const toggleTheme = () => {
-    setDarkMode((prevDarkMode) => !prevDarkMode);
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    console.log("Toggle theme clicked, new value:", newDarkMode);
   };
 
   const handleTabClick = (tab: string) => {

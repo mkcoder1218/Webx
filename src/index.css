@@ -38,6 +38,28 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Dark theme variables */
+html.dark {
+  --primary-color: #4b72e0;
+  --primary-hover: #3861d2;
+  --text-dark: #f3f4f6;
+  --text-light: #d1d5db;
+  --bg-dark: #111827;
+  --bg-light: #1f2937;
+  --bg-accent: #1a202c;
+  --border-color: #374151;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.6),
+    0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.15);
+}
+
+html.dark body {
+  color: var(--text-dark);
+  background-color: var(--bg-dark);
+}
+
 html,
 body {
   width: 100%;
@@ -224,6 +246,12 @@ ol {
   padding: 1rem 0;
 }
 
+/* Dark mode for site header */
+html.dark .site-header {
+  background-color: var(--bg-light);
+  box-shadow: var(--shadow);
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -277,6 +305,11 @@ ol {
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+/* Dark mode for hero section */
+html.dark .hero-section {
+  background: linear-gradient(135deg, #0c1323 0%, #162a60 100%);
 }
 
 .hero-title {
@@ -354,19 +387,9 @@ ol {
   overflow: hidden;
 }
 
-.features-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(0, 0, 0, 0.05),
-    transparent
-  );
+/* Dark mode for features section */
+html.dark .features-section {
+  background-color: var(--bg-accent);
 }
 
 .section-title {
@@ -405,19 +428,22 @@ ol {
 }
 
 .feature-card {
-  background-color: white;
+  background-color: var(--bg-light);
   border-radius: var(--radius-lg);
+  padding: 1.5rem;
   box-shadow: var(--shadow-card);
-  padding: 2.5rem 1.5rem;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid var(--border-color);
   position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
   z-index: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+html.dark .feature-card {
+  background-color: var(--bg-light);
+  box-shadow: var(--shadow-card);
 }
 
 .feature-card:hover {
@@ -466,6 +492,10 @@ ol {
   box-shadow: 0 6px 20px -5px rgba(53, 99, 233, 0.2);
 }
 
+html.dark .feature-icon {
+  color: var(--primary-color);
+}
+
 .feature-title {
   font-size: 1.25rem;
   font-weight: 700;
@@ -481,25 +511,14 @@ ol {
 
 /* Services Section */
 .services-section {
-  padding: 7rem 0;
+  padding: 6rem 0;
   background-color: var(--bg-light);
   position: relative;
   overflow: hidden;
 }
 
-.services-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(0, 0, 0, 0.05),
-    transparent
-  );
+html.dark .services-section {
+  background-color: var(--bg-dark);
 }
 
 .section-title {
@@ -537,13 +556,19 @@ ol {
 }
 
 .service-card {
-  background-color: white;
+  background-color: var(--bg-light);
   border-radius: var(--radius-lg);
+  padding: 2rem;
   box-shadow: var(--shadow-card);
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid var(--border-color);
   position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+html.dark .service-card {
+  background-color: var(--bg-light);
+  border-color: var(--border-color);
 }
 
 .service-card:hover {
